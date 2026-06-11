@@ -16,8 +16,6 @@ function Categories() {
     }, []);
 
     return <>
-        <h1>Categorie</h1>
-
         {!categories ? (
             <p>Caricamento in corso...</p>
         ) : (
