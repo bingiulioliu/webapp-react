@@ -3,9 +3,7 @@ import { fetchCategories } from "../utils/fetch";
 import { data } from "react-router";
 import { useState } from "react";
 import CategoryList from "../components/CategoryList";
-import CategoryCard from "../components/CategoryCard";
 
-CategoryCard
 function Categories() {
 
     const [categories, setCategories] = useState(null);
