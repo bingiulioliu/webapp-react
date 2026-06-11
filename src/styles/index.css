@@ -26,3 +26,57 @@
 .text-brown {
   color: #5a3215;
 }
+
+/* fonts */
+
+.titles-font {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.paragraph-font {
+  font-family: "Elms Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* intro homepage */
+
+#root {
+  background-color: #5ca7f8;
+  font-family: 'Elms Sans';
+}
+
+
+
+.btn-intro-most-loved {
+  width: 55%;
+  padding: 20px 30px;
+  background-color: #ffb703;
+  border-radius: 30px;
+  transition: all 0.3s;
+}
+
+.btn-intro-most-loved:hover {
+  background-color: #ffa4e1;
+  translate: 0 -3px;
+  box-shadow: 2px 3px 6px 1px;
+  transition: all 0.3s;
+}
+
+.btn-intro-menu {
+  width: 25%;
+  padding: 20px 30px;
+  background-color: #ffb703;
+  border-radius: 30px;
+  transition: all 0.3s;
+}
+
+.btn-intro-menu:hover {
+  background-color: #ffa4e1;
+  translate: 0 -3px;
+  box-shadow: 2px 3px 6px 1px;
+  transition: all 0.3s;
+}

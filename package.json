@@ -15,6 +15,7 @@
     "expressjs": "^1.0.1",
     "mysql2": "^3.22.5",
     "react": "^19.2.5",
+    "react-bootstrap-icons": "^1.11.6",
     "react-dom": "^19.2.5",
     "react-router": "^7.15.1",
     "react-router-dom": "^7.17.0"
