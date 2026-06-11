@@ -11,6 +11,107 @@
   usare un CSS Module (es. `NomeComponente.module.css`).
 */
 /* =========================
+   HEADER
+========================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #f4ffc8;
+  border-bottom: 4px solid rgba(93, 58, 0, 0.18);
+  box-shadow: 0 4px 0 rgba(93, 58, 0, 0.08);
+}
+
+.site-header .navbar {
+  min-height: 78px;
+  padding: 0.75rem 0;
+}
+
+.brand-logo,
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #5d3a00;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 1.9rem;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.brand-logo:hover,
+.footer-brand:hover {
+  color: #8a5a00;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffb703;
+  border: 3px solid #5d3a00;
+  box-shadow: 0 5px 0 rgba(93, 58, 0, 0.25);
+  font-size: 1.35rem;
+}
+
+.site-header .nav-link {
+  position: relative;
+  color: #332516;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.site-header .nav-link:hover,
+.site-header .nav-link.active {
+  color: #8a5a00;
+}
+
+.site-header .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.1rem;
+  width: 0;
+  height: 3px;
+  background: #8a5a00;
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.site-header .nav-link:hover::after,
+.site-header .nav-link.active::after {
+  width: 100%;
+}
+
+.btn-header-order {
+  background: #ffb703;
+  color: #5d3a00;
+  border: 3px solid #5d3a00;
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+  font-weight: 800;
+  box-shadow: 0 6px 0 rgba(93, 58, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-header-order:hover {
+  background: #ffa4e1;
+  color: #5d3a00;
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 rgba(93, 58, 0, 0.25);
+}
+
+.custom-toggler {
+  border: 2px solid #5d3a00;
+  background: #ffb703;
+  border-radius: 14px;
+}
+
+/* =========================
    PAGINA PRODOTTI
 ========================= */
 
@@ -190,6 +291,88 @@
   background-color: #ffa4e1;
   translate: 0 -3px;
   box-shadow: 2px 3px 6px 1px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+  background: #f4ffc8;
+  border-top: 4px solid rgba(93, 58, 0, 0.18);
+  padding: 3.5rem 0 2rem;
+  color: #332516;
+}
+
+.footer-brand {
+  font-size: 1.8rem;
+}
+
+.footer-text {
+  max-width: 440px;
+  color: #332516;
+  line-height: 1.6;
+}
+
+.footer-copy {
+  color: rgba(51, 37, 22, 0.72);
+  font-size: 0.95rem;
+}
+
+.footer-title {
+  color: #5d3a00;
+  font-size: 1.35rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  color: #332516;
+  margin-bottom: 0.55rem;
+  line-height: 1.5;
+}
+
+.footer-links a {
+  color: #332516;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-links a:hover {
+  color: #8a5a00;
+  text-decoration: underline;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.3rem;
+}
+
+.footer-socials a {
+  width: 38px;
+  height: 38px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffb703;
+  color: #5d3a00;
+  border: 2px solid #5d3a00;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 4px 0 rgba(93, 58, 0, 0.2);
+}
+
+.footer-socials a:hover {
+  background: #ffa4e1;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(93, 58, 0, 0.2);
 }
 
 /* =========================

@@ -1,36 +1,67 @@
 import { NavLink } from "react-router-dom";
-import useTheme from "../hooks/useTheme";
-import "../components/Header.css";
 
 function Header() {
     return (
-        <header>
-            <div className="logo">
-                Potato Shop
-            </div>
+        <header className="site-header">
+            <nav className="navbar navbar-expand-lg">
+                <div className="container">
+                    <NavLink className="navbar-brand brand-logo" to="/">
+                        <span className="brand-icon">🍟</span>
+                        <span>Friestore</span>
+                    </NavLink>
 
-            <nav>
-                <ul>
-                    <li>
-                        <NavLink to="/">Home</NavLink>
-                    </li>
+                    <button
+                        className="navbar-toggler custom-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar"
+                        aria-expanded="false"
+                        aria-label="Apri menu"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
 
-                    <li>
-                        <NavLink to="/products">Prodotti</NavLink>
-                    </li>
+                    <div className="collapse navbar-collapse" id="mainNavbar">
+                        <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-4">
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/">
+                                    Home
+                                </NavLink>
+                            </li>
 
-                    <li>
-                        <NavLink to="/categories">Categorie</NavLink>
-                    </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/products">
+                                    Prodotti
+                                </NavLink>
+                            </li>
 
-                    <li>
-                        <NavLink to="/about">Chi siamo</NavLink>
-                    </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/categories">
+                                    Categorie
+                                </NavLink>
+                            </li>
 
-                    <li>
-                        <NavLink to="/contact">Contatti</NavLink>
-                    </li>
-                </ul>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/about">
+                                    Chi siamo
+                                </NavLink>
+                            </li>
+
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/contact">
+                                    Contatti
+                                </NavLink>
+                            </li>
+
+                            <li className="nav-item">
+                                <NavLink className="btn btn-header-order" to="/products">
+                                    Ordina ora
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
         </header>
     );
