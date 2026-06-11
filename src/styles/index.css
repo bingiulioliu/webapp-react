@@ -14,12 +14,7 @@
    PAGINA PRODOTTI
 ========================= */
 
-.products-page {
-  min-height: 100vh;
-  background-color: #f4ffc8;
-  background-image: radial-gradient(#e3efae 1px, transparent 1px);
-  background-size: 18px 18px;
-}
+
 
 .products-title {
   color: #8a5a00;
