@@ -10,3 +10,19 @@
   componenti. Per stili specifici di un singolo componente è preferibile
   usare un CSS Module (es. `NomeComponente.module.css`).
 */
+.product-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-card-img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.text-brown {
+  color: #5a3215;
+}
