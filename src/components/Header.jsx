@@ -20,6 +20,10 @@ function Header() {
                     </li>
 
                     <li>
+                        <NavLink to="/categories">Categorie</NavLink>
+                    </li>
+
+                    <li>
                         <NavLink to="/about">Chi siamo</NavLink>
                     </li>
 
