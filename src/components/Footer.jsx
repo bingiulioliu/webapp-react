@@ -11,7 +11,7 @@ function Footer() {
                 </div>
 
                 <div className="footer-section">
-                    <h3>Link veloci</h3>
+                    <h3>Link utili</h3>
                     <ul>
                         <li>
                             <NavLink to="/">Home</NavLink>
