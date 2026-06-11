@@ -40,7 +40,7 @@ function ProductCard({ product }) {
                     </span>
 
                     <Link
-                        to={`/products/${product.id}`}
+                        to={`/prodotti/${product.id}`}
                         className="btn btn-dark rounded-pill px-4"
                     >
                         Scopri
