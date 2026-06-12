@@ -1,19 +1,19 @@
-import { useEffect } from "react";
-import { fetchProducts } from "../utils/fetch";
-import { data } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import fetchLatestFive from "../utils/fetchLatestFive.js";
 import { ForkKnife } from "react-bootstrap-icons";
+import ProductCard from "../components/ProductCard.jsx";
 
 
 function HomePage() {
 
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetchProducts().then(data => {
-      setProducts(data)
-      console.table(data);
-    });
+    fetchLatestFive()
+      .then(data => {
+        setProducts(data);
+      })
+      .catch(err => console.error("Errore nel recupero prodotti:", err));
   }, []);
 
   return <>
@@ -42,6 +42,23 @@ function HomePage() {
       </div>
 
     </div>
+    <div className="my-5">
+        <h2 className="titles-font text-center mb-4">Novità</h2>
+        
+        
+        <div className="row justify-content-center g-4">
+          {products && products.length > 0 ? (
+            products.map(product => (
+              // AGGIUNTA LA KEY e un wrapper col per decidere quante card vedere per riga
+              <div key={product.id} className="col-12 col-md-4 col-lg-2.4"> 
+                <ProductCard product={product}/>
+              </div>
+            ))
+          ) : (
+            <p className="text-center text-muted">Caricamento delle delizie in corso...</p>
+          )}
+        </div>
+      </div>
 
   </>;
 }
