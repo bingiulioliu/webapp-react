@@ -1,90 +1,62 @@
-import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard.jsx";
-import { fetchProductById } from "../utils/fetch.js";
+
 
 function productBelongsToCategory(product, category) {
     if (!product.categories) {
         return false;
     }
 
+    
     const productCategories = product.categories
         .split(",")
         .map((categoryName) => categoryName.trim().toLowerCase());
 
-    // Se 'category' è un oggetto, usiamo category.name, altrimenti usiamo la stringa direttamente
-    const targetCategory = category.name ? category.name : category;
-    return productCategories.includes(targetCategory.toLowerCase());
+    return productCategories.includes(category.toLowerCase());
 }
 
-function CategoryList({ categories, products }) {
-    const [ratingsByProductId, setRatingsByProductId] = useState({});
+function CategoryList({ categories, products, choice }) {
 
-    useEffect(() => {
-        async function getProductsRatings() {
-            const ratingsData = await Promise.all(
-                products.map(async (product) => {
-                    const productDetail = await fetchProductById(product.id);
-                    return {
-                        productId: product.id,
-                        averageRating: productDetail?.average_rating ?? null,
-                    };
-                })
-            );
+    
+    const currentCategory = categories.find((category) => category.name.toLowerCase() === choice.toLowerCase());
 
-            const ratingsObject = {};
 
-            ratingsData.forEach((item) => {
-                ratingsObject[item.productId] = {
-                    averageRating: item.averageRating,
-                };
-            });
+    if (!currentCategory) {
+        return (
+            <div className="text-center p-5">
+                <p>Seleziona una categoria per visualizzare le nostre patate deliziose!</p>
+            </div>
+        );
+    }
 
-            setRatingsByProductId(ratingsObject);
-        }
-
-        if (products.length > 0) {
-            getProductsRatings();
-        }
-    }, [products]);
+    const categoryProducts = products.filter((product) =>
+        productBelongsToCategory(product, currentCategory.name)
+    );
 
     return (
         <div className="category-sections-wrapper">
-            {categories.map((category) => {
-                const categoryProducts = products.filter((product) =>
-                    productBelongsToCategory(product, category)
-                );
+            <section className="category-products-section" key={currentCategory.id}>
+                <div className="category-products-heading">
+                    <h2 className="titles-font">{currentCategory.name}</h2>
+                    <p>{currentCategory.description}</p>
+                </div>
 
-                return (
-                    <section className="category-products-section" key={category.id}>
-                        <div className="category-products-heading">
-                            <h2>{category.name}</h2>
-                            <p>{category.description}</p>
-                        </div>
-
-                        {categoryProducts.length > 0 ? (
-                            <div className="row g-4">
-                                {categoryProducts.map((product) => (
-                                    /* Aggiunto il wrapper col- per allineare correttamente le card */
-                                    <div className="col-12 col-sm-6 col-lg-3" key={product.id}>
-                                        <ProductCard
-                                            product={product}
-                                            averageRating={ratingsByProductId[product.id]?.averageRating}
-                                            totalReviews={ratingsByProductId[product.id]?.totalReviews}
-                                        />
-                                    </div>
-                                ))}
+                {categoryProducts.length > 0 ? (
+                    <div className="row g-4">
+                        {categoryProducts.map((product) => (
+                            <div className="col-12 col-sm-6 col-lg-3" key={product.id}>
+                                <ProductCard product={product} />
                             </div>
-                        ) : (
-                            <div className="empty-category-message">
-                                <p>
-                                    Nessun prodotto trovato per questa categoria. La dinastia è
-                                    ancora in fase di frittura.
-                                </p>
-                            </div>
-                        )}
-                    </section>
-                );
-            })}
+                        ))}
+                    </div>
+                ) : (
+                    <div className="empty-category-message">
+                        <p>
+                            Nessun prodotto trovato per questa categoria. La dinastia è
+                            ancora in fase di frittura.
+                        </p>
+                    </div>
+                )}
+            </section>
         </div>
     );
 }
