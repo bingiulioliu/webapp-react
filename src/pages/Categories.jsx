@@ -4,6 +4,15 @@ import fetchProducts from "../utils/fetchProducts.js";
 import CategoryList from "../components/CategoryList.jsx";
 
 function Categories() {
+    const choices = [
+        "In offerta",
+        "Novità",
+        "Più venduti",
+        "Biologico",
+        "Specialità locali",
+    ];
+
+    const [activeChoice, setActiveChoice] = useState("In offerta");
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +36,7 @@ function Categories() {
         getPageData();
     }, []);
 
-    return (
+    return (<>
         <section className="categories-page">
             <div className="container">
                 <section className="categories-hero text-center mx-auto">
@@ -50,16 +59,32 @@ function Categories() {
                         <span>🔥 Origine controllata</span>
                     </div>
                 </section>
+                <div className="d-flex justify-content-center flex-wrap gap-3 mb-3 mt-5">
+                    {choices.map((choice) => (
+                        <button
+                            key={choice}
+                            type="button"
+                            className={
+                                activeChoice === choice
+                                    ? "btn filter-btn active"
+                                    : "btn filter-btn"
+                            }
+                            onClick={() => setActiveChoice(choice)}
+                        >
+                            {choice}
+                        </button>
+                    ))}
+                </div>
 
                 {isLoading ? (
                     <div className="text-center py-5">
                         <p>Caricamento categorie patatose...</p>
                     </div>
                 ) : (
-                    <CategoryList categories={categories} products={products} />
+                    <CategoryList categories={categories} products={products} choice={activeChoice}/>
                 )}
 
-                <section className="categories-final-cta text-center">
+                <section className="categories-final-cta text-center mt-5">
                     <h2>Trova la tua anima gemella</h2>
 
                     <p>
@@ -79,6 +104,7 @@ function Categories() {
                 </section>
             </div>
         </section>
+    </>
     );
 }
 

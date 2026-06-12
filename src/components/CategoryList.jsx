@@ -3,16 +3,18 @@ import ProductCard from "./ProductCard.jsx";
 import { fetchProductById } from "../utils/fetch.js";
 
 
+
 function productBelongsToCategory(product, category) {
     if (!product.categories) {
         return false;
     }
 
+    
     const productCategories = product.categories
         .split(",")
         .map((categoryName) => categoryName.trim().toLowerCase());
 
-    return productCategories.includes(category.name.toLowerCase());
+    return productCategories.includes(category.toLowerCase());
 }
 
 function CategoryList({ categories, products }) {
@@ -80,10 +82,17 @@ function CategoryList({ categories, products }) {
                                     ancora in fase di frittura.
                                 </p>
                             </div>
-                        )}
-                    </section>
-                );
-            })}
+                        ))}
+                    </div>
+                ) : (
+                    <div className="empty-category-message">
+                        <p>
+                            Nessun prodotto trovato per questa categoria. La dinastia è
+                            ancora in fase di frittura.
+                        </p>
+                    </div>
+                )}
+            </section>
         </div>
     );
 }
