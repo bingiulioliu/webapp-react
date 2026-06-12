@@ -10,13 +10,15 @@ function ProductCard({ product, averageRating }) {
         ? product.image
         : `/img/${product.image}`;
 
-    const finalAverageRating = averageRating ?? product.average_rating ?? null;
+    const finalAverageRating = averageRating === null ? 'Nessun voto' : averageRating;
 
-    const formattedRating =
-        finalAverageRating !== null
-            ? Number(finalAverageRating).toFixed(1).replace(".", ",")
-            : null;
+    let formattedRating = finalAverageRating;
+    
 
+    if (finalAverageRating !== 'Nessun voto') {
+        formattedRating = Number(finalAverageRating).toFixed(1).replace(".", ",");
+    }
+    
 
 
     return (
@@ -55,9 +57,9 @@ function ProductCard({ product, averageRating }) {
                 </h3>
 
                 <div className="product-rating mb-3">
-                    {formattedRating ? (
+                    {formattedRating !== 'Nessun voto' ? (
                         <span className="value">
-                            {formattedRating} / 5 ⭐
+                            {Number(formattedRating)} / 5 ⭐
 
                         </span>
                     ) : (
