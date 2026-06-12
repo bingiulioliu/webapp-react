@@ -3,16 +3,6 @@ import ProductList from "../components/ProductList.jsx";
 import SearchBar from "../components/SearchBar.jsx"; 
 
 function Products() {
-  const categories = [
-    "Tutti",
-    "Fritte",
-    "Al forno",
-    "Ripiene",
-    "Specialità croccanti",
-    "Edizioni rustiche",
-  ];
-
-  const [activeCategory, setActiveCategory] = useState("Tutti");
 
   return (
     <section className="products-page py-5">
@@ -25,25 +15,11 @@ function Products() {
             nostre migliori creazioni.
           </p>
         </div>
-        <SearchBar />
-        <div className="d-flex justify-content-center flex-wrap gap-3 mb-5">
-          {categories.map((category) => (
-            <button
-              key={category}
-              type="button"
-              className={
-                activeCategory === category
-                  ? "btn filter-btn active"
-                  : "btn filter-btn"
-              }
-              onClick={() => setActiveCategory(category)}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
 
-        <ProductList activeCategory={activeCategory} />
+        <SearchBar />
+        
+        <ProductList/>
+
 
 
       </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { fetchProductById } from "../utils/fetch.js";
+import ReviewList from "../components/ReviewsList.jsx";
 
 function ProductDetail() {
     const { id } = useParams();
@@ -112,6 +113,7 @@ function ProductDetail() {
                             </div>
                         </div>
                     </div>
+                    <ReviewList reviews={product.reviews} />
                 </div>
             </div>
         </section>
