@@ -42,7 +42,7 @@ function Contacts() {
                     <div className="card border-0 bg-dark text-white p-4 mb-4">
                         <h4 className="mb-3">Dove trovarci</h4>
                         <ul className="list-unstyled">
-                            <li className="mb-3">📍 <strong>SEDE CENTRALE</strong><br />Via delle Patate Dorate 12, 38122 Trento (TN)</li>
+                            <li className="mb-3">📍 <strong>SEDE CENTRALE</strong><br />Via delle Patate Dorate 12, 38122 Versolinfinitoeoltre (VIO)</li>
                             <li className="mb-3">📧 <strong>EMAIL</strong><br />info@patatosa.it</li>
                             <li>📞 <strong>CALL CENTER PATATOSO</strong><br />+39 0461 123456</li>
                         </ul>
