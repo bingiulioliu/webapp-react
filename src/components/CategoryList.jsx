@@ -2,19 +2,18 @@ import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard.jsx";
 import { fetchProductById } from "../utils/fetch.js";
 
-
-
 function productBelongsToCategory(product, category) {
     if (!product.categories) {
         return false;
     }
 
-    
     const productCategories = product.categories
         .split(",")
         .map((categoryName) => categoryName.trim().toLowerCase());
 
-    return productCategories.includes(category.toLowerCase());
+    // Se 'category' è un oggetto, usiamo category.name, altrimenti usiamo la stringa direttamente
+    const targetCategory = category.name ? category.name : category;
+    return productCategories.includes(targetCategory.toLowerCase());
 }
 
 function CategoryList({ categories, products }) {
@@ -25,11 +24,9 @@ function CategoryList({ categories, products }) {
             const ratingsData = await Promise.all(
                 products.map(async (product) => {
                     const productDetail = await fetchProductById(product.id);
-
                     return {
                         productId: product.id,
                         averageRating: productDetail?.average_rating ?? null,
-
                     };
                 })
             );
@@ -39,7 +36,6 @@ function CategoryList({ categories, products }) {
             ratingsData.forEach((item) => {
                 ratingsObject[item.productId] = {
                     averageRating: item.averageRating,
-
                 };
             });
 
@@ -68,11 +64,14 @@ function CategoryList({ categories, products }) {
                         {categoryProducts.length > 0 ? (
                             <div className="row g-4">
                                 {categoryProducts.map((product) => (
-                                    <ProductCard
-                                        product={product}
-                                        averageRating={ratingsByProductId[product.id]?.averageRating}
-                                        totalReviews={ratingsByProductId[product.id]?.totalReviews}
-                                    />
+                                    /* Aggiunto il wrapper col- per allineare correttamente le card */
+                                    <div className="col-12 col-sm-6 col-lg-3" key={product.id}>
+                                        <ProductCard
+                                            product={product}
+                                            averageRating={ratingsByProductId[product.id]?.averageRating}
+                                            totalReviews={ratingsByProductId[product.id]?.totalReviews}
+                                        />
+                                    </div>
                                 ))}
                             </div>
                         ) : (
@@ -82,17 +81,10 @@ function CategoryList({ categories, products }) {
                                     ancora in fase di frittura.
                                 </p>
                             </div>
-                        ))}
-                    </div>
-                ) : (
-                    <div className="empty-category-message">
-                        <p>
-                            Nessun prodotto trovato per questa categoria. La dinastia è
-                            ancora in fase di frittura.
-                        </p>
-                    </div>
-                )}
-            </section>
+                        )}
+                    </section>
+                );
+            })}
         </div>
     );
 }
