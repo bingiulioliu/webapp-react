@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard.jsx";
+import { fetchProductById } from "../utils/fetch.js";
+
 
 function productBelongsToCategory(product, category) {
     if (!product.categories) {
@@ -13,6 +16,39 @@ function productBelongsToCategory(product, category) {
 }
 
 function CategoryList({ categories, products }) {
+    const [ratingsByProductId, setRatingsByProductId] = useState({});
+
+    useEffect(() => {
+        async function getProductsRatings() {
+            const ratingsData = await Promise.all(
+                products.map(async (product) => {
+                    const productDetail = await fetchProductById(product.id);
+
+                    return {
+                        productId: product.id,
+                        averageRating: productDetail?.average_rating ?? null,
+
+                    };
+                })
+            );
+
+            const ratingsObject = {};
+
+            ratingsData.forEach((item) => {
+                ratingsObject[item.productId] = {
+                    averageRating: item.averageRating,
+
+                };
+            });
+
+            setRatingsByProductId(ratingsObject);
+        }
+
+        if (products.length > 0) {
+            getProductsRatings();
+        }
+    }, [products]);
+
     return (
         <div className="category-sections-wrapper">
             {categories.map((category) => {
@@ -30,9 +66,11 @@ function CategoryList({ categories, products }) {
                         {categoryProducts.length > 0 ? (
                             <div className="row g-4">
                                 {categoryProducts.map((product) => (
-                                    <div className="col-12 col-sm-6 col-lg-3" key={product.id}>
-                                        <ProductCard product={product} />
-                                    </div>
+                                    <ProductCard
+                                        product={product}
+                                        averageRating={ratingsByProductId[product.id]?.averageRating}
+                                        totalReviews={ratingsByProductId[product.id]?.totalReviews}
+                                    />
                                 ))}
                             </div>
                         ) : (
