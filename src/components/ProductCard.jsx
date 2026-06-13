@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ProductCard({ product, averageRating }) {
+function ProductCard({ product }) {
 
     const categoryLabel = Array.isArray(product.categories)
         ? product.categories.map((category) => category.name).join(", ")
@@ -10,16 +10,15 @@ function ProductCard({ product, averageRating }) {
         ? product.image
         : `/img/${product.image}`;
 
-    const finalAverageRating = averageRating === null ? 'Nessun voto' : averageRating;
+    const ratingData = product.average_rating;
 
-    let formattedRating = finalAverageRating;
+    let formattedRating = 'Nessun voto';
     
-
-    if (finalAverageRating !== 'Nessun voto') {
-        formattedRating = Number(finalAverageRating).toFixed(1).replace(".", ",");
+    if (ratingData !== null && ratingData !== undefined) {
+        formattedRating = Number(ratingData).toFixed(1).replace(".", ",");
     }
+    console.log(product);
     
-
 
     return (
         <article className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden product-card">
@@ -59,7 +58,7 @@ function ProductCard({ product, averageRating }) {
                 <div className="product-rating mb-3">
                     {formattedRating !== 'Nessun voto' ? (
                         <span className="value">
-                            {Number(formattedRating)} / 5 ⭐
+                            {formattedRating} / 5 ⭐
 
                         </span>
                     ) : (
