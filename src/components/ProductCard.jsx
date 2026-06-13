@@ -16,9 +16,7 @@ function ProductCard({ product }) {
     
     if (ratingData !== null && ratingData !== undefined) {
         formattedRating = Number(ratingData).toFixed(1).replace(".", ",");
-    }
-    console.log(product);
-    
+    };
 
     return (
         <article className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden product-card">
