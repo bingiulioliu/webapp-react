@@ -1,32 +1,36 @@
 import { Link } from "react-router-dom";
 
 function CategoryCard({ category }) {
-    return (
-        <Link
-            to={`/categories/${category.id}`}
-            className="text-decoration-none text-reset"
-        >
-            <article className="card h-100 rounded-4 border-0 shadow-sm category-card-cartoon">
-                <div className="card-body p-4 d-flex flex-column">
-                    <div className="category-card-icon mb-4">
-                        🥔
-                    </div>
+  return (
+    <Link
+      to={`/categories/${category.id}`}
+      className="category-card-link"
+    >
+      <article className="category-card-cartoon h-100">
+        <div className="category-card-icon">
+          🥔
+        </div>
 
-                    <h3 className="card-title fw-bold">
-                        {category.name}
-                    </h3>
+        <div className="category-card-content">
+          <span className="category-card-kicker">
+            Dinastia patatosa
+          </span>
 
-                    <p className="card-text flex-grow-1">
-                        {category.description}
-                    </p>
+          <h3>
+            {category.name}
+          </h3>
 
-                    <span className="btn btn-category-card align-self-start">
-                        Esplora
-                    </span>
-                </div>
-            </article>
-        </Link>
-    );
+          <p>
+            {category.description}
+          </p>
+        </div>
+
+        <span className="btn btn-category-card">
+          Esplora
+        </span>
+      </article>
+    </Link>
+  );
 }
 
 export default CategoryCard;

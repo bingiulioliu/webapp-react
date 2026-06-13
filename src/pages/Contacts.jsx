@@ -1,77 +1,154 @@
-
 function Contacts() {
-    return <>
-        <main className="container py-5">
-            {/* Intestazione Pagina */}
-            <section className="text-center mb-5">
-                <h1 className="display-4 fw-bold">Parliamo di Patate</h1>
-                <p className="lead text-muted">
-                    Hai un dubbio esistenziale sulla frittura? Vuoi dichiarare il tuo amore per una nostra ricetta?<br />
-                    <strong>Siamo qui per te!</strong> Nessuna domanda è troppo sciocca se riguarda i tuberi.
-                </p>
-            </section>
+    return (
+        <main className="contacts-page">
+            <div className="container py-5">
+                <section className="contacts-hero text-center mx-auto">
+                    <span className="contacts-pill">
+                        Servizio clienti patatoso
+                    </span>
 
-            <div className="row g-4">
-                {/* Colonna Sinistra: Form Contatti */}
-                <div className="col-lg-7">
-                    <div className="card border-0 bg-light p-4 shadow-sm">
-                        <h3 className="mb-4">✏️ Scrivici un messaggio</h3>
-                        <form>
-                            <div className="row">
-                                <div className="col-md-6 mb-3">
-                                    <label className="form-label">Il tuo Nome</label>
-                                    <input type="text" className="form-control" placeholder="Ex. Patatino Rossi" />
-                                </div>
-                                <div className="col-md-6 mb-3">
-                                    <label className="form-label">Email Golosa</label>
-                                    <input type="email" className="form-control" placeholder="patata@esempio.it" />
+                    <h1 className="contacts-title">
+                        Parliamo di patate
+                    </h1>
+
+                    <p className="contacts-subtitle">
+                        Hai un dubbio esistenziale sulla frittura? Vuoi dichiarare il tuo
+                        amore per una nostra ricetta? Siamo qui per te: nessuna domanda è
+                        troppo sciocca se riguarda i tuberi.
+                    </p>
+                </section>
+
+                <div className="row g-4 align-items-stretch">
+                    <div className="col-12 col-lg-7">
+                        <section className="contacts-card contacts-form-card h-100">
+                            <div className="contacts-card-heading">
+                                <span className="contacts-card-icon">✏️</span>
+
+                                <div>
+                                    <span className="contacts-kicker">Scrivici</span>
+                                    <h2>Mandaci un messaggio</h2>
                                 </div>
                             </div>
-                            <div className="mb-3">
-                                <label className="form-label">Tuo Pensiero Patatoso</label>
-                                <textarea className="form-control" rows="4" placeholder="Raccontaci tutto: dai complimenti alle critiche costruttive (ma sii gentile, le patate hanno sentimenti)"></textarea>
-                            </div>
-                            <button type="submit" className="btn btn-warning w-100 fw-bold">Invia il Messaggio ✉️</button>
-                        </form>
-                    </div>
-                </div>
 
-                {/* Colonna Destra: Info e Social */}
-                <div className="col-lg-5">
-                    {/* Box Informazioni */}
-                    <div className="card border-0 bg-dark text-white p-4 mb-4">
-                        <h4 className="mb-3">Dove trovarci</h4>
-                        <ul className="list-unstyled">
-                            <li className="mb-3">📍 <strong>SEDE CENTRALE</strong><br />Via delle Patate Dorate 12, 38122 Versolinfinitoeoltre (VIO)</li>
-                            <li className="mb-3">📧 <strong>EMAIL</strong><br />info@patatosa.it</li>
-                            <li>📞 <strong>CALL CENTER PATATOSO</strong><br />+39 0461 123456</li>
-                        </ul>
+                            <form>
+                                <div className="row">
+                                    <div className="col-12 col-md-6 mb-3">
+                                        <label className="form-label contacts-label">
+                                            Il tuo nome
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            className="form-control contacts-input"
+                                            placeholder="Es. Patatino Rossi"
+                                        />
+                                    </div>
+
+                                    <div className="col-12 col-md-6 mb-3">
+                                        <label className="form-label contacts-label">
+                                            Email golosa
+                                        </label>
+
+                                        <input
+                                            type="email"
+                                            className="form-control contacts-input"
+                                            placeholder="patata@esempio.it"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="mb-4">
+                                    <label className="form-label contacts-label">
+                                        Il tuo pensiero patatoso
+                                    </label>
+
+                                    <textarea
+                                        className="form-control contacts-input"
+                                        rows="5"
+                                        placeholder="Raccontaci tutto: complimenti, dubbi, critiche costruttive o dichiarazioni d’amore alle patatine."
+                                    ></textarea>
+                                </div>
+
+                                <button type="submit" className="btn btn-contact-primary w-100">
+                                    Invia il messaggio ✉️
+                                </button>
+                            </form>
+                        </section>
                     </div>
 
-                    {/* Social */}
-                    <div className="card border-0 bg-light p-4 text-center mb-4">
-                        <h5>Social Golosi</h5>
-                        <div className="d-flex justify-content-center gap-4 mt-3">
-                            <span>Instagram</span>
-                            <span>Facebook</span>
-                            <span>TikTok</span>
+                    <div className="col-12 col-lg-5">
+                        <div className="d-flex flex-column gap-4 h-100">
+                            <section className="contacts-card contacts-info-card">
+                                <span className="contacts-kicker">Dove trovarci</span>
+
+                                <h2>La tana del tubero</h2>
+
+                                <ul className="contacts-info-list">
+                                    <li>
+                                        <span className="contacts-info-icon">📍</span>
+
+                                        <div>
+                                            <strong>Sede centrale</strong>
+                                            <p>
+                                                Via delle Patate Dorate 12, 38122 Versolinfinitoeoltre
+                                                (VIO)
+                                            </p>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <span className="contacts-info-icon">📧</span>
+
+                                        <div>
+                                            <strong>Email</strong>
+                                            <p>info@patatosa.it</p>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <span className="contacts-info-icon">📞</span>
+
+                                        <div>
+                                            <strong>Call center patatoso</strong>
+                                            <p>+39 0461 123456</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <section className="contacts-card contacts-social-card text-center">
+                                <span className="contacts-kicker">Social golosi</span>
+
+                                <h2>Seguici online</h2>
+
+                                <div className="contacts-social-links">
+                                    <span>Instagram</span>
+                                    <span>Facebook</span>
+                                    <span>TikTok</span>
+                                </div>
+                            </section>
+
+                            <section className="contacts-map-card">
+                                <div className="contacts-map-icon">🗺️</div>
+                                <p>[Mappa qui]</p>
+                            </section>
                         </div>
                     </div>
-
-                    {/* Mappa placeholder */}
-                    <div className="bg-secondary rounded p-5 text-center text-white">
-                        [Mappa qui]
-                    </div>
                 </div>
-            </div>
 
-            {/* Supporto 24/7 */}
-            <section className="mt-5 text-center p-4 border border-warning border-dashed rounded">
-                <h5>✅ Supporto 24/7 (quasi)</h5>
-                <p className="mb-0">Rispondiamo sempre, tranne quando stiamo mangiando patatine fritte. Cioè spesso, ma abbi fede!</p>
-            </section>
+                <section className="contacts-support text-center">
+                    <div className="contacts-support-icon">✅</div>
+
+                    <h2>Supporto 24/7, quasi</h2>
+
+                    <p>
+                        Rispondiamo sempre, tranne quando stiamo mangiando patatine fritte.
+                        Cioè spesso. Ma abbi fede.
+                    </p>
+                </section>
+            </div>
         </main>
-    </>
+    );
 }
 
 export default Contacts;
