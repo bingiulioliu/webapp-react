@@ -59,7 +59,7 @@ function Categories() {
                         <span>🔥 Origine controllata</span>
                     </div>
                 </section>
-                <div className="d-flex justify-content-center flex-wrap gap-3 mb-3 mt-5">
+                <div className="categories-filter-wrapper d-flex justify-content-center flex-wrap gap-3 mb-5">
                     {choices.map((choice) => (
                         <button
                             key={choice}

@@ -6,7 +6,7 @@ function productBelongsToCategory(product, category) {
         return false;
     }
 
-    
+
     const productCategories = product.categories
         .split(",")
         .map((categoryName) => categoryName.trim().toLowerCase());
@@ -16,7 +16,7 @@ function productBelongsToCategory(product, category) {
 
 function CategoryList({ categories, products, choice }) {
 
-    
+
     const currentCategory = categories.find((category) => category.name.toLowerCase() === choice.toLowerCase());
 
 
@@ -36,6 +36,9 @@ function CategoryList({ categories, products, choice }) {
         <div className="category-sections-wrapper">
             <section className="category-products-section" key={currentCategory.id}>
                 <div className="category-products-heading">
+                    <span className="category-products-kicker">
+                        Categoria selezionata
+                    </span>
                     <h2 className="titles-font">{currentCategory.name}</h2>
                     <p>{currentCategory.description}</p>
                 </div>
@@ -50,6 +53,7 @@ function CategoryList({ categories, products, choice }) {
                     </div>
                 ) : (
                     <div className="empty-category-message">
+                        <div className="empty-category-icon">🍟</div>
                         <p>
                             Nessun prodotto trovato per questa categoria. La dinastia è
                             ancora in fase di frittura.
