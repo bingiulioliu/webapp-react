@@ -68,8 +68,7 @@ function ProductDetail() {
 
                     <div className="col-12 col-lg-6">
                         <span className="product-detail-category">
-                            {product.categories?.map((category) => category.name).join(", ") ||
-                                "Patatosa"}
+                            {product.categories?.map((category) => category.name).join(", ")}
                         </span>
 
                         <h1 className="product-detail-title">{product.name}</h1>
@@ -91,9 +90,9 @@ function ProductDetail() {
 
                         <div className="d-flex flex-wrap align-items-center gap-3 mt-4">
                             {product.available ? (
-                                <span className="detail-status available">Disponibile</span>
+                                <span className="detail-status available">🟢Disponibile</span>
                             ) : (
-                                <span className="detail-status unavailable">Terminato</span>
+                                <span className="detail-status unavailable">🔴Terminato</span>
                             )}
 
                             {product.in_stock !== undefined && (

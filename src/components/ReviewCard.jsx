@@ -1,26 +1,42 @@
 function ReviewCard({ review }) {
+    const userInitial = review.name
+        ? review.name.charAt(0).toUpperCase()
+        : "?";
 
     return (
-        <div className="card border-0 shadow-sm rounded-4 mb-3">
-            <div className="card-body">
-                <div className="d-flex justify-content-between align-items-center mb-2">
-                    <h5 className="card-title fw-bold m-0">{review.title}</h5>
-                    <div className="small">{review.rating}/5</div>
+        <article className="review-card">
+            <div className="review-card-header">
+                <div>
+                    <h3 className="review-card-title">
+                        {review.title}
+                    </h3>
                 </div>
 
-                <p className="card-text text-secondary mb-3">
-                    {review.text_review}
-                </p>
-
-                <div className="d-flex align-items-center">
-                    <div className="bg-light rounded-circle d-flex align-items-center justify-content-center me-2"
-                        style={{ width: '30px', height: '30px' }}>
-                        <span className="small fw-bold">{review.name.charAt(0).toUpperCase()}</span>
-                    </div>
-                    <span className="text-muted small">Scritto da <strong>{review.name}</strong></span>
+                <div className="review-rating-badge">
+                    {review.rating}/5 ⭐
                 </div>
             </div>
-        </div>
+
+            <p className="review-card-text">
+                “{review.text_review}”
+            </p>
+
+            <div className="review-card-author">
+                <div className="review-avatar">
+                    {userInitial}
+                </div>
+
+                <div>
+                    <span className="review-author-label">
+                        Scritto da
+                    </span>
+
+                    <strong className="review-author-name">
+                        {review.name}
+                    </strong>
+                </div>
+            </div>
+        </article>
     );
 }
 

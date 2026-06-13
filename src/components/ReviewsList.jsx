@@ -1,22 +1,46 @@
-import { useState } from "react"
-import { fetchProductById } from "../utils/fetch"
-import ReviewCard from "./ReviewCard"
-import { useEffect } from "react";
+import ReviewCard from "./ReviewCard.jsx";
 
-function ReviewList({reviews}) {
+function ReviewList({ reviews = [] }) {
+    return (
+        <section className="reviews-list-section">
+            <div className="reviews-list-header">
+                <span className="reviews-list-kicker">
+                    Opinioni croccanti
+                </span>
 
-    return <>
-        <section className="mt-5">
-            <h4 className="mb-4">Cosa dicono i nostri clienti</h4>
+                <h2>
+                    Cosa dicono i nostri clienti
+                </h2>
+
+                <p>
+                    Recensioni vere dal popolo patatoso: entusiasmo, consigli e giudizi
+                    direttamente da chi ha già assaggiato.
+                </p>
+            </div>
+
             {reviews.length > 0 ? (
-                reviews.map((review) => (
-                    <ReviewCard key={review.id} review={review} />
-                ))
+                <div className="row g-4">
+                    {reviews.map((review) => (
+                        <div className="col-12 col-lg-6" key={review.id}>
+                            <ReviewCard review={review} />
+                        </div>
+                    ))}
+                </div>
             ) : (
-                <p className="text-muted">Ancora nessuna recensione per questo prodotto.</p>
+                <div className="reviews-empty">
+                    <div className="reviews-empty-icon">
+                        🥔
+                    </div>
+
+                    <h3>Ancora nessuna recensione</h3>
+
+                    <p>
+                        Questo prodotto aspetta il suo primo assaggiatore coraggioso.
+                    </p>
+                </div>
             )}
         </section>
-    </>
-};
+    );
+}
 
 export default ReviewList;
