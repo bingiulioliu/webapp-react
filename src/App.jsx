@@ -1,5 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
+
+import ScrollToTop from "./components/ScrollToTop.jsx";
+
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
@@ -12,6 +15,7 @@ import Contacts from "./pages/Contacts.jsx";
 function App() {
   return (
     <ThemeProvider>
+      <ScrollToTop />
       
         <Routes>
           <Route element={<MainLayout />}>
