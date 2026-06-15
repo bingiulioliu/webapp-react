@@ -1,3 +1,5 @@
+import ReviewsForm from "../components/ReviewsForm.jsx"; 
+
 function Contacts() {
     return (
         <main className="contacts-page">
@@ -19,61 +21,9 @@ function Contacts() {
                 </section>
 
                 <div className="row g-4 align-items-stretch">
+                {/* componente form recensioni */}
                     <div className="col-12 col-lg-7">
-                        <section className="contacts-card contacts-form-card h-100">
-                            <div className="contacts-card-heading">
-                                <span className="contacts-card-icon">✏️</span>
-
-                                <div>
-                                    <span className="contacts-kicker">Scrivici</span>
-                                    <h2>Mandaci un messaggio</h2>
-                                </div>
-                            </div>
-
-                            <form>
-                                <div className="row">
-                                    <div className="col-12 col-md-6 mb-3">
-                                        <label className="form-label contacts-label">
-                                            Il tuo nome
-                                        </label>
-
-                                        <input
-                                            type="text"
-                                            className="form-control contacts-input"
-                                            placeholder="Es. Patatino Rossi"
-                                        />
-                                    </div>
-
-                                    <div className="col-12 col-md-6 mb-3">
-                                        <label className="form-label contacts-label">
-                                            Email golosa
-                                        </label>
-
-                                        <input
-                                            type="email"
-                                            className="form-control contacts-input"
-                                            placeholder="patata@esempio.it"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="mb-4">
-                                    <label className="form-label contacts-label">
-                                        Il tuo pensiero patatoso
-                                    </label>
-
-                                    <textarea
-                                        className="form-control contacts-input"
-                                        rows="5"
-                                        placeholder="Raccontaci tutto: complimenti, dubbi, critiche costruttive o dichiarazioni d’amore alle patatine."
-                                    ></textarea>
-                                </div>
-
-                                <button type="submit" className="btn btn-contact-primary w-100">
-                                    Invia il messaggio ✉️
-                                </button>
-                            </form>
-                        </section>
+                        <ReviewsForm />
                     </div>
 
                     <div className="col-12 col-lg-5">
