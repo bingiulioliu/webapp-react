@@ -64,9 +64,6 @@ function ProductCard({ product }) {
                     )}
                 </div>
 
-                <p className="card-text text-muted flex-grow-1">
-                    {product.description}
-                </p>
 
 
 
