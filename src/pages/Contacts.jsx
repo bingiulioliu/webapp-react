@@ -130,7 +130,9 @@ function Contacts() {
 
                             <section className="contacts-map-card">
                                 <div className="contacts-map-icon">🗺️</div>
-                                <p>[Mappa qui]</p>
+                                <div>
+                                    <img src="/img/mappa_ristorante.png" alt="" className="mappa-ristorante"/>
+                                </div>
                             </section>
                         </div>
                     </div>
