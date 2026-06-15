@@ -1,7 +1,9 @@
 import ProductList from "../components/ProductList.jsx";
+import { useState } from "react";
 import SearchBar from "../components/SearchBar.jsx";
 
 function Products() {
+  const [isSearching, setIsSearching] = useState(false);
   return (
     <main className="products-page">
       <div className="container py-5">
@@ -33,7 +35,7 @@ function Products() {
             <h2>Trova la tua patata ideale</h2>
           </div>
 
-          <SearchBar />
+          <SearchBar setIsSearching={setIsSearching} />
         </section>
 
         <section className="products-list-section">
@@ -46,7 +48,7 @@ function Products() {
             </p>
           </div>
 
-          <ProductList />
+          <ProductList isSearching={isSearching} />
         </section>
 
         <section className="products-final-cta text-center">

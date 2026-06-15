@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard.jsx";
 import { useEffect, useState } from "react";
 import fetchProducts from "../utils/fetchProducts.js";
 
-function ProductList({ activeCategory }) {
+function ProductList({ activeCategory, isSearching }) {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -17,6 +17,10 @@ function ProductList({ activeCategory }) {
         activeCategory === "Tutti"
             ? products
             : products.filter((product) => product.category === activeCategory);
+
+    if (isSearching) {
+        return null;
+    }
 
     return (
         <div className="row g-4">
