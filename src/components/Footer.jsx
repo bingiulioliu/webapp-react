@@ -7,8 +7,16 @@ function Footer() {
                 <div className="row gy-4 align-items-start">
                     <div className="col-12 col-lg-5">
                         <Link to="/" className="footer-brand">
-                            <span className="brand-icon">🍟</span>
-                            <span>Friestore</span>
+                            <img
+                            src="/img/pata-boss.png"
+                            alt="friestore logo"
+                            className="navbar-brand-logo rounded-circle shadow-sm"
+                            style={{
+                                height: '50px',
+                                width: '50px',
+                                objectFit: 'cover',
+                                border: '2px solid #ffc107' // Un piccolo bordino dorato che richiama il tema delle patatine
+                            }} />
                         </Link>
 
                         <p className="footer-text mt-3">

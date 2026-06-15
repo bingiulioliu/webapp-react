@@ -18,27 +18,40 @@ function HomePage() {
   return (
     <main className="home-page">
       <div className="container py-5">
-        <section className="home-hero">
-          <div className="row align-items-center g-5">
-            <div className="col-12 col-lg-6">
-              <span className="home-pill">
+        <section className="home-hero text-center py-4">
+          <div className="row justify-content-center g-4">
+            <div className="col-12 col-lg-10">
+              <span className="home-pill d-inline-block mb-2">
                 Il regno ufficiale della patata
               </span>
 
-              <h1 className="home-title titles-font">
+              <h1 className="home-title titles-font mb-4">
                 Friestore
               </h1>
 
-              <h2 className="home-claim titles-font">
+              <div className="p-2 bg-light border rounded shadow-sm mb-4 mx-auto" style={{ maxWidth: '100%' }}>
+                <img
+                  src="/img/pata-hero.png"
+                  alt="Il Regno Ufficiale di Friestore"
+                  className="img-fluid rounded w-100"
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              {/*
+              <div className="home-mascot-badge d-inline-block mb-4">
+                🥔 Pata energia pura
+              </div>
+              */}
+              <h2 className="home-claim titles-font mb-3">
                 Verso l&apos;infarto e oltre
               </h2>
 
-              <p className="home-subtitle">
+              <p className="home-subtitle mx-auto mb-4" style={{ maxWidth: '700px' }}>
                 Fritte, al forno, ripiene o croccanti: qui le patate non sono
                 un contorno. Sono protagoniste, dive, leggende dorate.
               </p>
 
-              <div className="home-hero-actions">
+              <div className="home-hero-actions d-flex justify-content-center gap-3">
                 <a href="#latest-products" className="btn btn-home-primary">
                   Le più nuove
                 </a>
@@ -46,20 +59,6 @@ function HomePage() {
                 <Link to="/products" className="btn btn-home-secondary">
                   Vai al menu
                 </Link>
-              </div>
-            </div>
-
-            <div className="col-12 col-lg-6 text-center">
-              <div className="home-mascot-card">
-                <img
-                  src="/img/logo_sito_senza_scritta_ingrandito.png"
-                  alt="Mascotte Friestore"
-                  className="home-mascot-img"
-                />
-
-                <div className="home-mascot-badge">
-                  🥔 Pata energia pura
-                </div>
               </div>
             </div>
           </div>

@@ -6,8 +6,16 @@ function Header() {
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
                     <NavLink className="navbar-brand brand-logo" to="/">
-                        <span className="brand-icon">🍟</span>
-                        <span>Friestore</span>
+                        <img
+                            src="/img/pata-boss.png"
+                            alt="friestore logo"
+                            className="navbar-brand-logo rounded-circle shadow-sm"
+                            style={{
+                                height: '80px',
+                                width: '80px',
+                                objectFit: 'cover',
+                                border: '2px solid #ffc107' // Un piccolo bordino dorato che richiama il tema delle patatine
+                            }} />
                     </NavLink>
 
                     <button
