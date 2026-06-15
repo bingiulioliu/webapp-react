@@ -5,14 +5,14 @@ import CategoryList from "../components/CategoryList.jsx";
 
 function Categories() {
     const choices = [
-        "In offerta",
+        "In Offerta",
         "Novità",
-        "Più venduti",
+        "Più Venduti",
         "Biologico",
-        "Specialità locali",
+        "Specialità Locali",
     ];
 
-    const [activeChoice, setActiveChoice] = useState("In offerta");
+    const [activeFilters, setActiveFilters] = useState([]);
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -65,11 +65,17 @@ function Categories() {
                             key={choice}
                             type="button"
                             className={
-                                activeChoice === choice
+                                activeFilters.includes(choice)
                                     ? "btn filter-btn active"
                                     : "btn filter-btn"
                             }
-                            onClick={() => setActiveChoice(choice)}
+                            onClick={() => {
+                                setActiveFilters((prev) =>
+                                    prev.includes(choice)
+                                        ? prev.filter((c) => c !== choice)
+                                        : [...prev, choice]
+                                );
+                            }}
                         >
                             {choice}
                         </button>
@@ -81,7 +87,11 @@ function Categories() {
                         <p>Caricamento categorie patatose...</p>
                     </div>
                 ) : (
-                    <CategoryList categories={categories} products={products} choice={activeChoice}/>
+                    <CategoryList
+                        categories={categories}
+                        products={products}
+                        choices={activeFilters}
+                    />
                 )}
 
                 <section className="categories-final-cta text-center mt-5">

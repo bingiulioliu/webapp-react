@@ -38,18 +38,20 @@ function Products() {
           <SearchBar setIsSearching={setIsSearching} />
         </section>
 
-        <section className="products-list-section">
-          <div className="products-list-heading">
-            <span>Le nostre creazioni</span>
-            <h2>Tutti i prodotti</h2>
-            <p>
-              Dal fritto classico alle specialità più ribelli: qui trovi tutto
-              quello che il regno patatoso ha da offrire.
-            </p>
-          </div>
+        {!isSearching && (
+          <section className="products-list-section">
+            <div className="products-list-heading">
+              <span>Le nostre creazioni</span>
+              <h2>Tutti i prodotti</h2>
+              <p>
+                Dal fritto classico alle specialità più ribelli: qui trovi tutto
+                quello che il regno patatoso ha da offrire.
+              </p>
+            </div>
 
-          <ProductList isSearching={isSearching} />
-        </section>
+            <ProductList />
+          </section>
+        )}
 
         <section className="products-final-cta text-center">
           <div className="products-final-icon">
