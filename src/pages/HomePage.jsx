@@ -34,14 +34,14 @@ function HomePage() {
                   src="/img/pata-hero.png"
                   alt="Il Regno Ufficiale di Friestore"
                   className="img-fluid rounded w-100"
-                  style={{ maxHeight: '500px', objectFit: 'cover' }}
+                  style={{ objectFit: 'contain' }}
                 />
               </div>
-
+              {/*
               <div className="home-mascot-badge d-inline-block mb-4">
                 🥔 Pata energia pura
               </div>
-
+              */}
               <h2 className="home-claim titles-font mb-3">
                 Verso l&apos;infarto e oltre
               </h2>

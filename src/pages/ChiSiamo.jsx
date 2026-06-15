@@ -36,7 +36,7 @@ function ChiSiamo() {
                         <div className="col-12 col-lg-5 text-center">
                             <div className="about-mascot-card">
                                 <img
-                                    src="/img/logo_sito_senza_scritta_ingrandito.png"
+                                    src="/img/epic-pata-boss.png"
                                     alt="Il pata capo"
                                     className="about-mascot-img"
                                 />
