@@ -1,16 +1,19 @@
-async function fetchProducts() {
-    
-    try {
-        const response = await fetch('http://localhost:3000/products');
-        if (!response.ok) {
-            throw new Error(`Errore HTTP! Stato: ${response.status}`);
-        }
+async function fetchProducts(page = 1, limit = 10, search = "") {
+    let url = `http://localhost:3000/products?page=${page}&limit=${limit}`;
 
-        const products = await response.json();
-        return products;
-    } catch (error) {
-        console.error("Si è verificato un problema con la fetch:", error);
+    if (search) {
+        url += `&search=${search}`;
     }
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error("Errore nel recupero dei prodotti");
+    }
+
+    const data = await response.json();
+
+    return data;
 }
 
 export default fetchProducts;
