@@ -11,7 +11,7 @@ async function fetchSearchBar(query) {
         const queryParam = import.meta.env.VITE_QUERY_PARAM;
 
         const url = `http://${host}:${port}/${path}?${queryParam}=${query.trim()}`;
-        
+
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -21,6 +21,7 @@ async function fetchSearchBar(query) {
         const responseData = await response.json();
 
         return responseData.data || [];
+
 
     } catch (error) {
         console.error('Error while searching in fetchSearchBar:', error);

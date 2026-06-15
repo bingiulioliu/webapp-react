@@ -1,15 +1,18 @@
 import { useState } from "react";
-import fetchSearchBar from '../utils/fetchSearchBar.js'; 
+import fetchSearchBar from '../utils/fetchSearchBar.js';
 import SearchBarResults from './SearchBarResults.jsx';
 
-function SearchBar() {
+function SearchBar({ setIsSearching }) {
     const [search, setSearch] = useState('');
     const [results, setResults] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const submitHandler = (event) => {
         event.preventDefault();
+
+        setIsSearching(true);
         setLoading(true);
+
         fetchSearchBar(search).then((data) => {
             setResults(data);
             setLoading(false);
@@ -17,14 +20,23 @@ function SearchBar() {
     };
 
     const inputHandler = (event) => {
-        const target = event.target;
-        const { value } = target;
+        const value = event.target.value;
+
         setSearch(value);
-    }
+
+        if (value.trim() === "") {
+            setIsSearching(false);
+            setResults(null);
+        }
+    };
 
     return (
         <div className='mb-5'>
-            <form onSubmit={submitHandler} className='input-group mx-auto' style={{ maxWidth: '500px' }}>
+            <form
+                onSubmit={submitHandler}
+                className='input-group mx-auto'
+                style={{ maxWidth: '500px' }}
+            >
                 <input
                     type='text'
                     className='form-control'
@@ -32,13 +44,17 @@ function SearchBar() {
                     value={search}
                     onChange={inputHandler}
                 />
+
                 <button className='btn btn-warning' type='submit'>
                     Patata!
                 </button>
             </form>
 
             <div className='search-results-container mt-4'>
-                <SearchBarResults results={results} loading={loading} />
+                <SearchBarResults
+                    results={results}
+                    loading={loading}
+                />
             </div>
         </div>
     );
