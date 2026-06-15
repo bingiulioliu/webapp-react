@@ -108,14 +108,10 @@ function ChiSiamo() {
                 </section>
 
                 <section className="about-story-section">
-                    <div className="row align-items-center g-5">
-                        <div className="col-12 col-lg-5">
-                            <div className="about-story-image">
-                                <span className="brand-icon">🍟</span>
-                            </div>
-                        </div>
+                    <div className="row justify-content-center g-5">
 
-                        <div className="col-12 col-lg-7">
+
+                        <div className="col-12">
                             <span className="about-kicker">
                                 Dietro le quinte
                             </span>
@@ -123,6 +119,17 @@ function ChiSiamo() {
                             <h2 className="about-story-title">
                                 Una squadra con una missione precisa
                             </h2>
+
+                            <div className="col-12 mb-4">
+                                <div className="about-story-image">
+                                    <img
+                                        src="/img/pata-team.png"
+                                        alt="Il Team degli Esperti delle Patate"
+                                        className="img-fluid rounded shadow w-100"
+                                        style={{ maxHeight: '450px', objectFit: 'cover' }}
+                                    />
+                                </div>
+                            </div>
 
                             <p className="about-story-text">
                                 I nostri esperti non mangiano solo patate: le studiano, le
