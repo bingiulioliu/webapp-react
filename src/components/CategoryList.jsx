@@ -14,34 +14,22 @@ function productBelongsToCategory(product, category) {
     return productCategories.includes(category.toLowerCase());
 }
 
-function CategoryList({ categories, products, choice }) {
+function CategoryList({ categories, products, choices }) {
 
 
-    const currentCategory = categories.find((category) => category.name.toLowerCase() === choice.toLowerCase());
-
-
-    if (!currentCategory) {
-        return (
-            <div className="text-center p-5">
-                <p>Seleziona una categoria per visualizzare le nostre patate deliziose!</p>
-            </div>
-        );
-    }
+    const selectedCategories = categories.filter((category) =>
+        choices.includes(category.name)
+    );
 
     const categoryProducts = products.filter((product) =>
-        productBelongsToCategory(product, currentCategory.name)
+        selectedCategories.some((cat) =>
+            productBelongsToCategory(product, cat.name)
+        )
     );
 
     return (
         <div className="category-sections-wrapper">
-            <section className="category-products-section" key={currentCategory.id}>
-                <div className="category-products-heading">
-                    <span className="category-products-kicker">
-                        Categoria selezionata
-                    </span>
-                    <h2 className="titles-font">{currentCategory.name}</h2>
-                    <p>{currentCategory.description}</p>
-                </div>
+            <section className="category-products-section" key={choices.join("-")}>
 
                 {categoryProducts.length > 0 ? (
                     <div className="row g-4">
