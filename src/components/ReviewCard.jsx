@@ -3,6 +3,13 @@ function ReviewCard({ review }) {
         ? review.name.charAt(0).toUpperCase()
         : "?";
 
+    const isoDate = review.created_at;
+    const formattedDate = new Date(isoDate).toLocaleString('it-IT',{
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    })
+
     return (
         <article className="review-card">
             <div className="review-card-header">
@@ -34,6 +41,9 @@ function ReviewCard({ review }) {
                     <strong className="review-author-name">
                         {review.name}
                     </strong>
+                    <span className="review-author-label">
+                        il {formattedDate}
+                    </span>
                 </div>
             </div>
         </article>
