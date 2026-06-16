@@ -2481,3 +2481,78 @@
     padding: 2.5rem 1.2rem;
   }
 }
+
+.review-form-card {
+  background-color: #fffdf7;
+  border: 3px solid rgba(93, 58, 0, 0.24);
+  border-radius: 30px;
+  padding: clamp(1.4rem, 4vw, 2rem);
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 0 rgba(93, 58, 0, 0.12);
+}
+
+.review-form-heading {
+  margin-bottom: 1.8rem;
+}
+
+.review-form-heading span {
+  display: inline-block;
+  color: #8a3f12;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.review-form-heading h2 {
+  font-family: "Luckiest Guy", cursive;
+  color: #5d3a00;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  text-shadow: 2px 3px 0 rgba(255, 183, 3, 0.3);
+}
+
+.review-form-heading p {
+  color: #332516;
+  line-height: 1.7;
+  max-width: 700px;
+  margin-bottom: 0;
+}
+
+.review-form-label {
+  color: #5d3a00;
+  font-weight: 900;
+}
+
+.review-form-input {
+  border: 2px solid rgba(93, 58, 0, 0.22);
+  border-radius: 18px;
+  padding: 0.85rem 1rem;
+  background-color: #fffdf7;
+  color: #171e00;
+  font-weight: 700;
+}
+
+.review-form-input:focus {
+  border-color: #ffb703;
+  box-shadow: 0 0 0 0.25rem rgba(255, 183, 3, 0.25);
+}
+
+.btn-review-submit {
+  background-color: #d90429;
+  color: white;
+  border: 3px solid #5d3a00;
+  border-radius: 999px;
+  padding: 0.85rem 1.5rem;
+  font-weight: 900;
+  box-shadow: 0 6px 0 rgba(93, 58, 0, 0.25);
+}
+
+.btn-review-submit:hover {
+  background-color: #bf0022;
+  color: white;
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 rgba(93, 58, 0, 0.25);
+}
