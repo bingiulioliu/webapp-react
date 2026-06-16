@@ -35,7 +35,7 @@ function PotatoAgentProvider({ children }) {
         setIsLoading(true);
 
         try {
-            const response = await fetch("http://localhost:3000/ai/potato-agent", {
+            const response = await fetch("http://localhost:3000/agent/chat", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
