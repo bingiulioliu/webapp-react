@@ -8,7 +8,7 @@ function PotatoAgentProvider({ children }) {
     const [messages, setMessages] = useState([
         {
             role: "agent",
-            text: "Ciao! Sono il Pata-Agente 🥔 Dimmi cosa cerchi e ti consiglio il prodotto giusto.",
+            text: "Ciao! Sono Potato Agent 🥔 Dimmi cosa cerchi e ti consiglio il prodotto giusto.",
         },
     ]);
 
@@ -35,7 +35,7 @@ function PotatoAgentProvider({ children }) {
         setIsLoading(true);
 
         try {
-            const response = await fetch("http://localhost:3000/ai/potato-agent", {
+            const response = await fetch("http://localhost:3000/agent/chat", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
