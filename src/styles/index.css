@@ -2740,7 +2740,14 @@
   .potato-agent-floating-btn {
     right: 16px;
     bottom: 88px;
-    padding: 0.75rem 0.9rem;
+    padding: 0;
+    width: 85px;
+    height: 85px;
+  }
+
+  .potato-agent-floating-btn img {
+    width: 85px;
+    height: 85px;
   }
 
   .potato-agent-floating-btn span {
