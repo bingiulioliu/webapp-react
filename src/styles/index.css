@@ -183,6 +183,10 @@
    PRODUCT CARD
 ========================= */
 
+.put-like {
+  cursor: pointer;
+}
+
 .product-card {
   position: relative;
   background-color: #fffdf7;

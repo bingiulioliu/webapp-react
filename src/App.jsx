@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { WishProvider } from "./contexts/wishlistContext.jsx";
 
 import ScrollToTop from "./components/ScrollToTop.jsx";
 
@@ -14,22 +15,24 @@ import Contacts from "./pages/Contacts.jsx";
 
 function App() {
   return (
-    <ThemeProvider>
-      <ScrollToTop />
-      
+    <WishProvider>
+      <ThemeProvider>
+        <ScrollToTop />
+
         <Routes>
           <Route element={<MainLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="/products" element={<Products/>}/>
+            <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<ProductDetail />} />
-            <Route path="/categories" element={<Categories/>}/>
-            <Route path="/about" element={<ChiSiamo/>}/>
-            <Route path="/contact" element={<Contacts/>}/>
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/about" element={<ChiSiamo />} />
+            <Route path="/contact" element={<Contacts />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-      
-    </ThemeProvider>
+
+      </ThemeProvider>
+    </WishProvider>
   );
 }
 export default App;
