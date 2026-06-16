@@ -1,6 +1,7 @@
 import ProductList from "../components/ProductList.jsx";
 import { useState } from "react";
 import SearchBar from "../components/SearchBar.jsx";
+import PotatoAgentModal from "../components/PotatoAgentModal.jsx";
 
 function Products() {
   const [isSearching, setIsSearching] = useState(false);
@@ -36,7 +37,12 @@ function Products() {
           </div>
 
           <SearchBar setIsSearching={setIsSearching} />
+
+          
+
         </section>
+
+
 
         {!isSearching && (
           <section className="products-list-section">

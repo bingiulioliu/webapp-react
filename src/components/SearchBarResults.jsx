@@ -16,7 +16,7 @@ function SearchBarResults({ results, loading }) {
     return (
         <div>
             <h3 className='text-center mb-4'>Risultato della tua ricerca:</h3>
-            <div className='row'>
+            <div className='row gap-4'>
                 {results.map((product) => (
                     <div className='col-12 col-md-6 col-lg-3' key={product.id}>
                         <ProductCard product={product} />

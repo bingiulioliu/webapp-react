@@ -12,27 +12,34 @@ import ProductDetail from "./pages/ProductDetail.jsx";
 import Categories from "./pages/Categories.jsx";
 import ChiSiamo from "./pages/ChiSiamo.jsx";
 import Contacts from "./pages/Contacts.jsx";
+import { NewsletterProvider } from "./contexts/NewsletterContext.jsx";
+import { PotatoAgentProvider } from "./contexts/PotatoAgentContext.jsx";
 
 function App() {
   return (
-    <WishProvider>
+   <WishProvider>
+    <NewsletterProvider>
       <ThemeProvider>
-        <ScrollToTop />
+        <PotatoAgentProvider>
+          <ScrollToTop />
 
-        <Routes>
-          <Route element={<MainLayout />}>
-            <Route index element={<HomePage />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/:id" element={<ProductDetail />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/about" element={<ChiSiamo />} />
-            <Route path="/contact" element={<Contacts />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-
+          <Routes>
+            <Route element={<MainLayout />}>
+              <Route index element={<HomePage />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/products/:id" element={<ProductDetail />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/about" element={<ChiSiamo />} />
+              <Route path="/contact" element={<Contacts />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+          
+        </PotatoAgentProvider>
       </ThemeProvider>
-    </WishProvider>
+    </NewsletterProvider>
+</WishProvider>
+
   );
 }
 export default App;

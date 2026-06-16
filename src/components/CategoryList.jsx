@@ -21,11 +21,14 @@ function CategoryList({ categories, products, choices }) {
         choices.includes(category.name)
     );
 
-    const categoryProducts = products.filter((product) =>
-        selectedCategories.some((cat) =>
-            productBelongsToCategory(product, cat.name)
-        )
-    );
+    const categoryProducts =
+        choices.length === 0
+            ? products
+            : products.filter((product) =>
+                selectedCategories.some((cat) =>
+                    productBelongsToCategory(product, cat.name)
+                )
+            );
 
     return (
         <div className="category-sections-wrapper">

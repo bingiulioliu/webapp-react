@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { fetchProductById } from "../utils/fetch.js";
 import ReviewList from "../components/ReviewsList.jsx";
+import ReviewsForm from "../components/ReviewsForm.jsx";
 
 function ProductDetail() {
     const { id } = useParams();
@@ -112,6 +113,8 @@ function ProductDetail() {
                             </div>
                         </div>
                     </div>
+                    <ReviewsForm productId={product.id} />
+                    
                     <ReviewList reviews={product.reviews} />
                 </div>
             </div>
