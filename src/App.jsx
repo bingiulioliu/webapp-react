@@ -12,26 +12,29 @@ import Categories from "./pages/Categories.jsx";
 import ChiSiamo from "./pages/ChiSiamo.jsx";
 import Contacts from "./pages/Contacts.jsx";
 import { NewsletterProvider } from "./contexts/NewsletterContext.jsx";
+import { PotatoAgentProvider } from "./contexts/PotatoAgentContext.jsx";
 
 function App() {
   return (
     <NewsletterProvider>
-    <ThemeProvider>
-      <ScrollToTop />
-      
-        <Routes>
-          <Route element={<MainLayout />}>
-            <Route index element={<HomePage />} />
-            <Route path="/products" element={<Products/>}/>
-            <Route path="/products/:id" element={<ProductDetail />} />
-            <Route path="/categories" element={<Categories/>}/>
-            <Route path="/about" element={<ChiSiamo/>}/>
-            <Route path="/contact" element={<Contacts/>}/>
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      
-    </ThemeProvider>
+      <ThemeProvider>
+        <PotatoAgentProvider>
+          <ScrollToTop />
+
+          <Routes>
+            <Route element={<MainLayout />}>
+              <Route index element={<HomePage />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/products/:id" element={<ProductDetail />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/about" element={<ChiSiamo />} />
+              <Route path="/contact" element={<Contacts />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+          
+        </PotatoAgentProvider>
+      </ThemeProvider>
     </NewsletterProvider>
   );
 }
