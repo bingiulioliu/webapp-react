@@ -11,9 +11,11 @@ import ProductDetail from "./pages/ProductDetail.jsx";
 import Categories from "./pages/Categories.jsx";
 import ChiSiamo from "./pages/ChiSiamo.jsx";
 import Contacts from "./pages/Contacts.jsx";
+import { NewsletterProvider } from "./contexts/NewsletterContext.jsx";
 
 function App() {
   return (
+    <NewsletterProvider>
     <ThemeProvider>
       <ScrollToTop />
       
@@ -30,6 +32,7 @@ function App() {
         </Routes>
       
     </ThemeProvider>
+    </NewsletterProvider>
   );
 }
 export default App;
