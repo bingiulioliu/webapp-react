@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { usePotatoAgent } from "../contexts/PotatoAgentContext.jsx";
+import ReactMarkdown from "react-markdown";
 
 function PotatoAgentModal() {
     const [userMessage, setUserMessage] = useState("");
@@ -33,8 +34,10 @@ function PotatoAgentModal() {
                 onClick={openAgent}
                 aria-label="Apri Pata-Agente"
             >
-                🥔
-                <span>Sei indeciso e non sai che patata scegliere?</span>
+                <img src="./img/potato_agent.png" 
+                    alt="Potato Agent" 
+                    className="img-fluid object-fit-contain" 
+                />
             </button>
 
             {isAgentOpen && (
@@ -46,7 +49,7 @@ function PotatoAgentModal() {
                                     Assistente patatoso
                                 </span>
 
-                                <h2>Pata-Agente</h2>
+                                <h2>Potato Agent</h2>
                             </div>
 
                             <button
@@ -70,11 +73,11 @@ function PotatoAgentModal() {
                                                 : "potato-message agent-message"
                                         }
                                     >
-                                        <p>{message.text}</p>
+                                        <ReactMarkdown children={String(message.text ?? '')} />
 
                                         {message.product && (
                                             <div className="potato-agent-product">
-                                                <strong>{message.product.name}</strong>
+                                                <strong>{String(message.product.name)}</strong>
 
                                                 <span>
                                                     €{" "}
