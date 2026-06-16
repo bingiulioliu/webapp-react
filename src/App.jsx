@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { WishProvider } from "./contexts/wishlistContext.jsx";
 
 import ScrollToTop from "./components/ScrollToTop.jsx";
 
@@ -16,6 +17,7 @@ import { PotatoAgentProvider } from "./contexts/PotatoAgentContext.jsx";
 
 function App() {
   return (
+   <WishProvider>
     <NewsletterProvider>
       <ThemeProvider>
         <PotatoAgentProvider>
@@ -36,6 +38,8 @@ function App() {
         </PotatoAgentProvider>
       </ThemeProvider>
     </NewsletterProvider>
+</WishProvider>
+
   );
 }
 export default App;

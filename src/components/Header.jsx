@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { WishContext } from "../contexts/wishlistContext.jsx";
+import ProductCardWish from "./ProductCardWish.jsx";
 
 function Header() {
+    const { wishList } = useContext(WishContext);
     return (
         <header className="site-header">
             <nav className="navbar navbar-expand-lg">
@@ -67,10 +71,33 @@ function Header() {
                                     Ordina ora
                                 </NavLink>
                             </li>
+                            <li className="nav-item">
+                                <button 
+                                    className="btn btn-header-order" 
+                                    type="button" 
+                                    data-bs-toggle="offcanvas" 
+                                    data-bs-target="#offcanvasRight" 
+                                    aria-controls="offcanvasRight"
+                                >
+                                    ❤️ Wishlist
+                                </button>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
             </nav>
+            <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div className="offcanvas-header">
+                    <h5 className="offcanvas-title" id="offcanvasRightLabel">La tua Wishlist</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div className="offcanvas-body">
+                    {wishList.length > 0 ? wishList.map(prod => {
+                        return <ProductCardWish key={prod.id} product={prod}/>
+                    }) : <p className="paragraph-font">Riempi la tua wishlist</p>}
+                </div>
+            </div>
         </header>
     );
 }

@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
-import { Heart, HeartFill } from "react-bootstrap-icons";
 import { useContext } from "react"; // <--- Importiamo useContext standard
 import { WishContext } from "../contexts/wishlistContext.jsx"; // <--- Importiamo il Context
+import { Trash } from "react-bootstrap-icons";
 
-function ProductCard({ product }) {
-    
-    const { wishList, addWishHandler } = useContext(WishContext);
-
-    // Controlliamo se il prodotto è nella wishlist
-    const isLiked = Array.isArray(wishList) && wishList.some((item) => item.id === product.id);
+function ProductCardWish({ product }) {
+    // Usiamo useContext normalmente per prendere l'handler
+    const { addWishHandler } = useContext(WishContext);
 
     // Gestione delle categorie
     const categoryLabel = Array.isArray(product.categories)
@@ -25,7 +22,7 @@ function ProductCard({ product }) {
     let formattedRating = 'Nessun voto';
     if (ratingData !== null && ratingData !== undefined) {
         formattedRating = Number(ratingData).toFixed(1).replace(".", ",");
-    };
+    }
 
     return (
         <article className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden product-card">
@@ -54,15 +51,14 @@ function ProductCard({ product }) {
             <div className="card-body d-flex flex-column">
                 
                 <span 
-                    className="put-like align-self-end" 
-                    style={{ cursor: 'pointer' }}
+                    className="put-like align-self-end text-danger" 
                     onClick={(e) => {
                         e.stopPropagation();
-                        // Passiamo l'inverso di isLiked
-                        addWishHandler(product, !isLiked);
+                        // Passiamo false per rimuovere l'elemento dal Context
+                        addWishHandler(product, false);
                     }}
                 >
-                    {isLiked ? <HeartFill width={28} height={28} color="red" /> : <Heart width={28} height={28}/>}
+                    <Trash width={28} height={28}/>
                 </span> 
 
                 <span className="badge text-bg-warning align-self-start mb-3 rounded-pill text-wrap">
@@ -84,7 +80,7 @@ function ProductCard({ product }) {
                         € {Number(product.price).toFixed(2).replace(".", ",")}
                     </span>
 
-                    <Link to={`/products/${product.id}`} className="btn btn-dark rounded-pill px-4">
+                    <Link to={`/products/${product.id}`} className="btn btn-dark rounded-pill px-4" data-bs-dismiss="offcanvas">
                         Scopri
                     </Link>
                 </div>
@@ -93,4 +89,4 @@ function ProductCard({ product }) {
     );
 }
 
-export default ProductCard;
+export default ProductCardWish;
